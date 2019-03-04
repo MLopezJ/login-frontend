@@ -17,7 +17,9 @@ module.exports = {
         template: './src/index.html'
     })],
     devServer: {
-        historyApiFallback: true
+        inline: true,
+    contentBase: './dist',
+    port: 5000
     },
     externals: {
         // global app config object
