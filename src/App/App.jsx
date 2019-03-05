@@ -14,10 +14,17 @@ class App extends React.Component {
         super(props);
 
         const { dispatch } = this.props;
-        history.listen((location, action) => {
-            // clear alert on location change
-            dispatch(alertActions.clear());
-        });
+        
+        if (process.env.PORT){
+            history.listen(process.env.PORT);
+        }
+        else{
+            history.listen((location, action) => {
+                // clear alert on location change
+                dispatch(alertActions.clear());
+            });
+        }
+        
     }
 
     render() {
