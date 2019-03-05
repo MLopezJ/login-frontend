@@ -15,15 +15,12 @@ class App extends React.Component {
 
         const { dispatch } = this.props;
         
-        if (process.env.PORT){
-            history.listen(process.env.PORT);
-        }
-        else{
-            history.listen((location, action) => {
-                // clear alert on location change
-                dispatch(alertActions.clear());
-            });
-        }
+        
+        history.listen((location, action) => {
+            // clear alert on location change
+            dispatch(alertActions.clear());
+        });
+    
         
     }
 
